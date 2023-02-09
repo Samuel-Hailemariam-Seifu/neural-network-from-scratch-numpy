@@ -13,6 +13,7 @@ This project is designed to help you understand the full training pipeline:
 ```text
 .
 ├── README.md
+├── app.py
 ├── requirements.txt
 ├── train_xor.py
 └── src
@@ -40,8 +41,16 @@ pip install -r requirements.txt
 python train_xor.py
 ```
 
+4. Run the interactive UI:
+
+```bash
+streamlit run app.py
+```
+
 You should see the loss decrease and predictions close to:
 - `[0, 1, 1, 0]`
+
+In the UI, you can tune epochs, learning rate, hidden layer size, and seed to see how training behavior changes.
 
 ## What Each Module Does
 

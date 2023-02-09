@@ -36,6 +36,7 @@ class Sequential:
         y: np.ndarray,
         epochs: int = 1000,
         print_every: int = 100,
+        verbose: bool = True,
     ) -> list[float]:
         if self.loss_fn is None or self.optimizer is None:
             raise RuntimeError("Call compile(loss_fn, optimizer) before fit().")
@@ -56,7 +57,7 @@ class Sequential:
             # 4) Update trainable parameters
             self.optimizer.step(self.layers)
 
-            if epoch % print_every == 0 or epoch == 1 or epoch == epochs:
+            if verbose and (epoch % print_every == 0 or epoch == 1 or epoch == epochs):
                 print(f"Epoch {epoch:4d}/{epochs} | Loss: {loss:.6f}")
 
         return history
